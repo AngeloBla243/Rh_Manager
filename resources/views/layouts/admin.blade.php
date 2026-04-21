@@ -16,9 +16,7 @@
 </head>
 
 <body>
-
     <div class="app">
-
         {{-- ── Sidebar ──────────────────────────────────────── --}}
         <aside class="sidebar">
             <div class="sidebar-logo">
@@ -123,6 +121,28 @@
 
                 <div class="nav-group-label">Outils</div>
 
+                <a href="{{ route('admin.rapports.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.rapports*') ? 'active' : '' }}">
+                    <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                        stroke-width="1.6">
+                        <path
+                            d="M3 2.5h7l3 3V13a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 2 13V4A1.5 1.5 0 0 1 3.5 2.5z" />
+                        <path d="M10 2.5V6h3.5" />
+                        <path d="M5 8.5h6M5 11h6" />
+                    </svg>
+                    Rapports
+                </a>
+
+                <a href="{{ route('admin.notifications.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.notifications*') ? 'active' : '' }}">
+                    <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                        stroke-width="1.6">
+                        <path d="M8 1.5a4 4 0 0 0-4 4v2.2L2.5 10v1h11v-1L12 7.7V5.5a4 4 0 0 0-4-4z" />
+                        <path d="M6.5 12.5a1.5 1.5 0 0 0 3 0" />
+                    </svg>
+                    Notifications
+                </a>
+
                 <a href="{{ route('admin.statistiques.index') }}"
                     class="nav-link {{ request()->routeIs('admin.statistiques*') ? 'active' : '' }}">
                     <svg class="icon" viewBox="0 0 16 16" fill="none" stroke="currentColor"
@@ -198,7 +218,6 @@
 
     @stack('scripts')
     <script>
-        // Close modals on overlay click
         document.querySelectorAll('.modal-overlay').forEach(o => {
             o.addEventListener('click', e => {
                 if (e.target === o) o.style.display = 'none';
